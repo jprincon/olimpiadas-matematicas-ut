@@ -1,0 +1,17 @@
+<h1>Crear/Editar un Grado</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Grado ...</h3>
+</div>
+
+<form>
+    <div class="form-group">
+        <label style="font-weight: bold;">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="grado.nombre" name="nombre">
+    </div>
+
+
+    <button (click)="guardarGrado()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

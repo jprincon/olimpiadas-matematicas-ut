@@ -1,0 +1,17 @@
+<h1>Crear/Editar un Rol</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Rol ...</h3>
+</div>
+
+<form *ngIf="!guardando">
+    <div class="form-group">
+        <label style="font-weight: bold;">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="rol.nombre" name="nombre">
+    </div>
+
+
+    <button (click)="guardarRol()" class="btn btn-success float-right">Guardar</button>
+</form>

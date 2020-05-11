@@ -1,0 +1,85 @@
+<div style="margin: 30px">
+    <div class="card-shadow card" *ngIf="tipo === 'recuperar'">
+        <div class="card-body">
+            <h1>Recuperar contraseña</h1>
+            <hr>
+
+            <p>Usted ha solicitado recuperar su contraseña, escriba a continuación su número de documento para enviarle un correo a su cuenta asociada</p>
+
+            <div class="form-group">
+                <label class="font-bold">Número de Identifación (Usuario)</label>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Documento de Usuario" [(ngModel)]="Usuario" name="Usuario">
+                    <div class="input-group-append">
+                        <span class="input-group-text" *ngIf="bRecuperando">
+                          <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+                        </span>
+                        <span class="input-group-text" *ngIf="!bRecuperando">
+                          <i class="fas fa-sync fa-1x text-success fa"  ></i>
+                        </span>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-info" style="margin: 10px;" (click)="recuperarContra()">Enviar Solicitud</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-shadow card" *ngIf="tipo !== 'recuperar'">
+        <div class="card-body">
+            <h1>Recuperar contraseña</h1>
+            <hr>
+
+            <p>A continuación escriba su nueva contraseña</p>
+
+            <div>
+                <div class="form-group">
+                    <label class="font-bold">Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Documento de Usuario" [(ngModel)]="Contra1" name="Contra1">
+                </div>
+
+                <div class="form-group">
+                    <label class="font-bold">Repita la Contraseña</label>
+                    <input type="password" class="form-control" placeholder="Documento de Usuario" [(ngModel)]="Contra2" name="Contra2">
+                </div>
+
+                <button class="btn btn-outline-info" style="margin: 10px;" (click)="recuperarNuevaContra()">Recuperar Contraseña</button>
+            </div>
+
+            <div class="text-center" style="margin: 20px;" *ngIf="bActualizando">
+                <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+                <div style="height: 30px;"></div>
+                <h3>Actualizando Contraseña ...</h3>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 20px;"></div>
+
+    <div class="alert alert-info" *ngIf="bRecupero">
+        <h3>Contraseña recuperada ...</h3>
+        <hr>
+
+        <p>Te enviamos un link para recuperar tu contraseña a {{ usuario.correo | mostrarCorreo }}</p>
+    </div>
+</div>
+
+
+<!-- Modelo de correo enviado al Usuario
+<div style="margin: 100px; -webkit-box-shadow: 10px 10px 15px 1px rgba(0,0,0,0.58); -moz-box-shadow: 10px 10px 15px 1px rgba(0,0,0,0.58); box-shadow: 10px 10px 15px 1px rgba(0,0,0,0.58);">
+
+    <div style="background-color: red; color: white;">
+        <h1 style="margin: 10px; padding: 10px;">Olimpiadas Matemáticas</h1>
+    </div>
+
+    <div style="margin: 10px; padding: 10px; font-size: 24px;">
+        <p>Cordial Saludo,</p>
+        <p>Hemos recibido una solicitud de recuperación de contraseña. Para recuperar la contraseña, haga clic en el siguiente vínculo</p>
+        <a href="http://jprincon.com/olimpiadas/recuperar-contra/1098308059">Recuperar mi Contraseña</a>
+        <div style="height: 30px;"></div>
+        <p>Atentamente,</p>
+        <p>El equipo de Olimpiadas Matemáticas</p>
+    </div>
+
+</div> -->

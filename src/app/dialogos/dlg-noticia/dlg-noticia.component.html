@@ -1,0 +1,42 @@
+<h1>Crear/Editar una Noticia</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Noticia ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendoNoticia">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Noticia ...</h3>
+</div>
+
+<form *ngIf="!guardando && !leyendoNoticia">
+    <div class="form-group">
+        <label style="font-weight: bold;">Título</label>
+        <input type="text" class="form-control" [(ngModel)]="noticia.titulo" name="titulo">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Noticia</label>
+        <textarea rows="5" type="text" class="form-control" [(ngModel)]="noticia.noticia" name="noticia"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Imagen</label>
+        <input type="text" class="form-control" [(ngModel)]="noticia.imagen" name="imagen">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Fecha Inicio</label>
+        <input type="date" class="form-control" [(ngModel)]="noticia.fechainicio" name="fechainicio">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Fecha Fin</label>
+        <input type="date" class="form-control" [(ngModel)]="noticia.fechafin" name="fechafin">
+    </div>
+
+
+    <button (click)="guardarNoticia()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

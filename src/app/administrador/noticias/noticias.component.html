@@ -1,0 +1,49 @@
+<h1>Noticias</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Noticias ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="eliminando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Eliminando Noticia ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendo && !eliminando">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarNoticia()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar Noticia</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Título</th>
+                <th>Noticia</th>
+                <th>Imagen</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let noticia of Noticias; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>{{ noticia.titulo | capitalizado }}</td>
+                <td class="text-justify">{{ noticia.noticia }}</td>
+                <td><img [src]="noticia.imagen" style="height: 48px;"></td>
+                <td>{{ noticia.fechainicio }}</td>
+                <td>{{ noticia.fechafin }}</td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" (click)="editarNoticia(noticia)"> <img src="assets/Iconos/Editar.png" style="height: 32px;">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarNoticia(noticia)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

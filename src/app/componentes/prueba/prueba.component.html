@@ -1,0 +1,66 @@
+<div class="row m-3">
+
+    <div class="col-md-3">
+        <div class="card card-shadow">
+            <div class="card-header bg-info">
+                <h3 class="card-title text-white">
+                    Preguntas de la Prueba
+                </h3>
+            </div>
+
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action puntero-manito" (click)="seleccionarPregunta(pregunta, id)" *ngFor="let pregunta of Preguntas; let id = index">Pregunta {{ id + 1 }}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <h1 class="text-info">{{ nombrePrueba | capitalizado }}</h1>
+        <hr>
+
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active font-bold font-24">Pregunta {{ idPregunta + 1 }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+
+                <!-- %%%%%%% Imágenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                <div class="row" *ngIf="Imagenes.length > 0">
+
+                    <div class="col-md-3">
+                        <div class="list-group">
+                            <a class="list-group-item list-group-item-action puntero-manito" *ngFor="let imagen of Imagenes; let id = index" (click)="cambiarImagen(imagen)">Imagen {{ id + 1 }}</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-9">
+                        <div class="card card-shadow">
+                            <img class="card-img-top" [src]="imagenSeleccionada.imagen" [alt]="imagenSeleccionada.idimagenpregunta">
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <ng-katex-paragraph [paragraph]="preguntaSeleccionada.pregunta"></ng-katex-paragraph>
+                <hr>
+
+                <!-- %%%%%%% Opciones de la pregunta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                <mat-radio-group class="radio-group" [(ngModel)]="opcionSeleccionada">
+                    <mat-radio-button class="radio-button" *ngFor="let opcion of Opciones" [value]="opcion">
+                        <ng-katex-paragraph [paragraph]="opcion.opcion"></ng-katex-paragraph>
+                    </mat-radio-button>
+                </mat-radio-group>
+
+                <hr>
+
+                <button (click)="guardarContinuar()" class="btn btn-outline-info float-right">Guardar y Continuar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

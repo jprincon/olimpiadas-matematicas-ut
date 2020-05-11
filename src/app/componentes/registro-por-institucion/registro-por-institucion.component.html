@@ -1,0 +1,59 @@
+<div style="margin: 20px">
+
+    <h1>Registro de Estudiante por Institución</h1>
+    <hr>
+
+    <div class="form-group">
+        <label class="font-bold">Código de la Institución</label>
+        <input type="text" [(ngModel)]="IdInstitucion" name="IdInstitucion" class="form-control" placeholder="Ingrese el código de su Institución">
+    </div>
+
+
+    <div>
+
+    </div>
+
+    <div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+        <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+        <h3>Leyendo Lista de Estudiantes ...</h3>
+    </div>
+
+    <div *ngIf="!leyendo">
+        <button class="btn btn-outline-info float-right mb-3" (click)="ActualizarLista()">Actualizar Lista</button>
+        <button class="btn btn-outline-info float-leftmb-3" (click)="AgregarEstudiante()">Agregar Estudiante</button>
+        <table class="table table-hover">
+
+            <thead class="bg-info text-white">
+                <tr>
+                    <th>No</th>
+                    <th>Código/Documento</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Teléfono</th>
+                    <th>Grado</th>
+                    <th>Editar</th>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let usuario of Usuarios; let id = index">
+                    <td>{{ id + 1 }}</td>
+                    <td>{{ usuario.idusuario }}</td>
+                    <td>{{ usuario.nombre | capitalizado }}</td>
+                    <td>{{ usuario.correo }}</td>
+                    <td>{{ usuario.telefono }}</td>
+                    <td>{{ usuario.idgrado }}</td>
+                    <td>
+                        <button class="btn btn-outline-warning btn-sm" (click)="editarEstudiante(usuario)"><img src="assets/Iconos/Editar.png" style="width: 24px;"> Editar</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-danger btn-sm" (click)="eliminarEstudiante(usuario)"><img src="assets/Iconos/Eliminar.png" style="width: 24px;"> Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-outline-info float-right mt-3" (click)="ActualizarLista()">Actualizar Lista</button>
+    </div>
+
+</div>

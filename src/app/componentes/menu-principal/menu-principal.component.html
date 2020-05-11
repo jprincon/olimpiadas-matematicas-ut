@@ -1,0 +1,109 @@
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card card-shadow" style="margin: 20px;">
+            <div class="card-body">
+                <h3>Hola, {{ usuario.nombre | nombrePersona }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div id="carouselExampleControls" class="carousel slide card-shadow" style="margin: 20px;" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item" *ngFor="let noticia of Noticias; let id = index" [ngClass]="{'active': id === 0}">
+                    <img [src]="noticia.imagen" class="d-block w-100" [alt]="noticia.titulo" (click)="verNoticia(noticia)">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+        <div class="row" style="margin: 20px;">
+
+            <div class="col-md-8">
+                <h1 class="text-info">¿Qué es {{ nombreApp }}?</h1>
+                <hr class="text-info">
+
+                <p class="text-justify">El proyecto olimpiadas matemáticas es un proyecto que esta orientado a .... El propósito del proyecto es fortalecer los espacios de aprendizaje de las matemáticas a través de una olimpiada que permita la clasificación de los mejores talentos
+                    en matemáticas de la ciudad de Ibague</p>
+
+                <h1 class="text-info">Autores</h1>
+                <hr class="text-info">
+
+                <ul>
+                    <li *ngFor="let autor of autores">{{ autor | capitalizado}}</li>
+                </ul>
+
+                <h1 class="text-info">Colaboradores</h1>
+                <hr class="text-info">
+
+                <ul>
+                    <li>...</li>
+                    <li>...</li>
+                    <li>...</li>
+                </ul>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card text-white bg-info mb-3 block puntero-manito">
+                    <div class="card-body">
+                        <div class="media" (click)="irMenu('presentar-pruebas')">
+                            <img src="assets/Iconos/Pruebas2.svg" style="height: 48px;" class="align-self-start mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">Presentar pruebas</h5>
+                                <p class="card-text">Los estudiantes ingresan a éste módulo a presentar las diferentes pruebas propuestas por Olimpiadas Matemáticas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-info mb-3 block puntero-manito">
+                    <div class="card-body">
+                        <div class="media" (click)="irMenu('registrar-por-institucion')">
+                            <img src="assets/Iconos/Editar.png" style="height: 48px;" class="align-self-start mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">Registrar Estudiantes</h5>
+                                <p class="card-text">Registre a los Estudiantes de su Institución</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-info mb-3 block puntero-manito">
+                    <div class="card-body">
+                        <div class="media" (click)="irMenu('puntajes')">
+                            <img src="assets/Iconos/Score.svg" style="height: 48px;" class="align-self-start mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">Puntajes</h5>
+                                <p class="card-text">Encuentre aquí los puntajes obtenidos en sus pruebas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-white bg-info mb-3 block puntero-manito">
+                    <div class="card-body">
+                        <div class="media" (click)="irMenu('estadisticas')">
+                            <img src="assets/Iconos/Estadisticas.svg" style="height: 48px;" class="align-self-start mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">Estadísticas</h5>
+                                <p class="card-text">Analice los datos obtenidos en las pruebas, por prueba, por estudiante y por institución</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

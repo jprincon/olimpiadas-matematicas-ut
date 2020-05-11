@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-shadow m-3">
+            <div class="card-title text-white text-center bg-info">
+                <h3 class="card-title">Administrador</h3>
+            </div>
+
+            <div class="list-group">
+                <a *ngFor="let menu of menuAdministrador" (click)="buscarMenu(menu.ruta, menu.titulo)" class="list-group-item list-group-item-action puntero-manito">
+                    <div class="media">
+                        <img [src]="menu.icono" class="align-self-start mr-3" [alt]="menu.titulo" style="width: 48px;">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{ menu.titulo }}</h5>
+                            <p>{{ menu.descripcion }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <div class="card card-shadow m-3">
+            <div class="card-header bg-info text-white text-center">
+                <h3 class="card-title">{{ titulo | capitalizado }}</h3>
+            </div>
+
+            <div class="card-body">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

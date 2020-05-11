@@ -1,0 +1,44 @@
+[{
+    "Titulo": "Materias",
+    "Apps": [{
+            "Nombre": "Matemáticas Generales",
+            "Programa": "Ingeniería Electrónica",
+            "Descripcion": "Comprende el conjunto de conocimientos básicos de las matemáticas",
+            "Imagen": "assets/Aplicaciones/Imagenes/syllabus_matematicas_generales.png",
+            "Syllabus": "downloads/sae_matematicas/Syllabus_Matematicas_Generales_Ingenieria_Electronica.pdf",
+            "Ruta": "matematicas-generales"
+        },
+        {
+            "Nombre": "Cálculo Diferencial",
+            "Programa": "Ingeniería Electrónica",
+            "Descripcion": "Funciones, Límites y Derivadas",
+            "Imagen": "assets/Aplicaciones/Imagenes/syllabus_matematicas_generales.png",
+            "Syllabus": "downloads/sae_matematicas/Syllabus_Matematicas_Generales_Ingenieria_Electronica.pdf",
+            "Ruta": "calculo-diferencial"
+        },
+        {
+            "Nombre": "Ecuaciones Diferenciales",
+            "Programa": "Ingeniería Electrónica",
+            "Descripcion": "Funciones, Límites y Derivadas",
+            "Imagen": "assets/Aplicaciones/Imagenes/syllabus_matematicas_generales.png",
+            "Syllabus": "downloads/sae_matematicas/Syllabus_Matematicas_Generales_Ingenieria_Electronica.pdf",
+            "Ruta": "ecuaciones-diferenciales"
+        },
+        {
+            "Nombre": "Investigación",
+            "Programa": "Licenciatura en Matemáticas",
+            "Descripcion": "Funciones, Límites y Derivadas",
+            "Imagen": "assets/Aplicaciones/Imagenes/syllabus_matematicas_generales.png",
+            "Syllabus": "downloads/sae_matematicas/Syllabus_Matematicas_Generales_Ingenieria_Electronica.pdf",
+            "Ruta": "investigacion"
+        },
+        {
+            "Nombre": "Geometría Analítica",
+            "Programa": "Licenciatura en Matemáticas",
+            "Descripcion": "Funciones, Límites y Derivadas",
+            "Imagen": "assets/Aplicaciones/Imagenes/syllabus_matematicas_generales.png",
+            "Syllabus": "downloads/sae_matematicas/Syllabus_Matematicas_Generales_Ingenieria_Electronica.pdf",
+            "Ruta": "geometria-analitica"
+        }
+    ]
+}]

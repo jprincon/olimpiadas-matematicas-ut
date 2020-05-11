@@ -1,0 +1,17 @@
+<h1>Crear/Editar un Nivel</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Nivel ...</h3>
+</div>
+
+<form *ngIf="!guardando">
+    <div class="form-group">
+        <label style="font-weight: bold;">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="nivel.nombre" name="nombre">
+    </div>
+
+
+    <button (click)="guardarNivel()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

@@ -1,0 +1,41 @@
+<h1>Grados</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Grados ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="eliminando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Eliminando Grado ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendo && !eliminando">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarGrado()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar Grado</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Nombre</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let grado of Grados; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>{{ grado.nombre }}</td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" (click)="editarGrado(grado)"> <img src="assets/Iconos/Editar.png" style="height: 32px;">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarGrado(grado)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

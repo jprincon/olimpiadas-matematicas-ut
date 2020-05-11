@@ -1,0 +1,42 @@
+<h1>Crear/Editar una Prueba</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Prueba ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Prueba ...</h3>
+</div>
+
+<form *ngIf="!leyendo && !guardando">
+    <div class="form-group">
+        <label style="font-weight: bold;">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="prueba.nombre" name="nombre">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Descripción</label>
+        <textarea type="text" rows="5" class="form-control" [(ngModel)]="prueba.descripcion" name="descripcion"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Fecha</label>
+        <input type="date" class="form-control" [(ngModel)]="prueba.fecha" name="fecha">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Hora Inicio</label>
+        <input type="time" class="form-control" [(ngModel)]="prueba.horainicio" name="horainicio">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Hora Finalización</label>
+        <input type="time" class="form-control" [(ngModel)]="prueba.horafin" name="horafin">
+    </div>
+
+
+    <button (click)="guardarPrueba()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

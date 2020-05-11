@@ -1,0 +1,49 @@
+<h1>Instituciones</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Instituciones ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="eliminando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Eliminando Institución ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendo && !eliminando">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarInstitucion()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar Institucion</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Rector</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let institucion of Instituciones; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>{{ institucion.idinstitucion }}</td>
+                <td>{{ institucion.nombre }}</td>
+                <td>{{ institucion.direccion }}</td>
+                <td>{{ institucion.telefono }}</td>
+                <td>{{ institucion.rector }}</td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" (click)="editarInstitucion(institucion)"> <img src="assets/Iconos/Editar.png" style="height: 32px;">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarInstitucion(institucion)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

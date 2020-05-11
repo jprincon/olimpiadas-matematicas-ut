@@ -1,0 +1,166 @@
+<h1 class="text-info">Editando pregunta</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Pregunta ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendoPregunta">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Pregunta ...</h3>
+</div>
+
+<form *ngIf="!leyendoPregunta && !guardando">
+    <div class="form-group">
+        <label style="font-weight: bold;">Pregunta</label>
+        <textarea type="text" rows="10" class="form-control" [(ngModel)]="pregunta.pregunta" name="pregunta"></textarea>
+    </div>
+
+    <!-- %%%%%%% Previsualización de la pregunta en formato Katex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <div class="card card-shadow">
+        <div class="card-header bg-dark text-white">
+            <h3>Previsualización de la Pregunta</h3>
+        </div>
+
+        <div class="card-body">
+            <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <label style="font-weight: bold;">Nivel</label>
+        <input type="text" class="form-control" [(ngModel)]="pregunta.idnivel" name="idnivel">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Nivel</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="pregunta.idnivel" name="idnivel">
+            <option selected>Seleccione un Nivel para la pregunta ...</option>
+            <option [value]="nivel.idnivel" *ngFor="let nivel of Niveles" >{{ nivel.nombre }}</option>
+          </select>
+            <div class="input-group-append">
+                <span class="input-group-text" *ngIf="leyendoNiveles">
+              <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+            </span>
+                <span class="input-group-text" *ngIf="!leyendoNiveles">
+              <i class="fas fa-sync fa-1x text-success fa"  ></i>
+            </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Grado</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="pregunta.idgrado" name="idgrado">
+          <option selected>A qué grado pertenece ésta pregunta ...</option>
+          <option [value]="grado.idgrado" *ngFor="let grado of Grados" >{{ grado.nombre }}</option>
+        </select>
+            <div class="input-group-append">
+                <span class="input-group-text" *ngIf="leyendoGrados">
+            <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+          </span>
+                <span class="input-group-text" *ngIf="!leyendoGrados">
+            <i class="fas fa-sync fa-1x text-success fa"  ></i>
+          </span>
+            </div>
+        </div>
+    </div>
+
+
+    <button (click)="guardarPregunta()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>
+
+<div style="height: 40px;"></div>
+
+<h1 class="text-info">Imágenes de la Pregunta</h1>
+<hr class="text-info">
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendoImagenes">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Imágenes ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendoImagenes">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarImagenPregunta()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar ImagenPregunta</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Imagen</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let imagenpregunta of ImagenesPregunta; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>
+                    <img [src]="imagenpregunta.imagen" style="height: 128px;">
+                </td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" (click)="editarImagenPregunta(imagenpregunta)"> <img src="assets/Iconos/Editar.png" style="height: 32px;">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarImagenPregunta(imagenpregunta)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h2 class="text-info">Opciones de Pregunta</h2>
+<hr class="text-info">
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendoOpciones">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Opciones ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendoOpciones">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarOpcionPregunta()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar Opción a Pregunta</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-info">
+            <tr>
+                <th>No</th>
+                <th>Opción</th>
+                <th>Es Correcta</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let opcionpregunta of OpcionesPregunta; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>
+                    <ng-katex-paragraph [paragraph]="opcionpregunta.opcion"></ng-katex-paragraph>
+                </td>
+                <td>{{ opcionpregunta.escorrecta }}</td>
+                <td>
+                    <button class="btn btn-outline-warning btn-sm" (click)="editarOpcionPregunta(opcionpregunta)"> <img src="assets/Iconos/Editar.png" style="height: 32px;">Editar</button>
+                </td>
+                <td>
+                    <button class="btn btn-outline-danger btn-sm" (click)="eliminarOpcionPregunta(opcionpregunta)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<h1 class="text-info">Prueba</h1>
+<hr>
+
+<p>¿A qué prueba pertenece ésta pregunta?</p>
+<hr>
+
+<select class="custom-select" [(ngModel)]="pregunta.idprueba" (change)="guardarPregunta()">
+<option [value]="prueba.idprueba" *ngFor="let prueba of Pruebas" >{{ prueba.nombre | capitalizado }}</option>
+</select>

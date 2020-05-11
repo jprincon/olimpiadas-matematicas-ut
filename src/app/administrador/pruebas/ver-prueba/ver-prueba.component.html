@@ -1,0 +1,53 @@
+<h1 class="text-info">{{ prueba.nombre | capitalizado }}</h1>
+<hr>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="prueba.nombre" name="nombre">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Fecha</label>
+    <input type="date" class="form-control" [(ngModel)]="prueba.fecha" name="fecha">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Hora Inicio</label>
+    <input type="time" class="form-control" [(ngModel)]="prueba.horainicio" name="horainicio">
+</div>
+
+<div class="form-group">
+    <label style="font-weight: bold;">Hora Finalización</label>
+    <input type="time" class="form-control" [(ngModel)]="prueba.horafin" name="horafin">
+</div>
+
+
+<button (click)="guardarPrueba()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+
+<div style="height: 40px;"></div>
+<hr>
+
+<h1 class="text-info">Preguntas</h1>
+<hr>
+
+<table class="table table-hover">
+    <thead class="table-info text-info">
+        <tr>
+            <th>No</th>
+            <th>Pregunta</th>
+            <th>Ver</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let pregunta of Preguntas; let id = index">
+            <td>{{ id + 1 }}</td>
+            <td>
+                <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+            </td>
+            <td>
+                <button class="btn btn-outline-info"><img src="assets/Iconos/Ver.png" style="height: 32px;"> Ver</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

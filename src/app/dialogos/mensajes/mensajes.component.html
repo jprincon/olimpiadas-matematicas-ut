@@ -1,0 +1,29 @@
+<div *ngIf="Titulo === 'Advertencia'">
+    <h1 class="text-warning">{{ Titulo }}</h1>
+    <hr class="text-warning">
+
+    <p class="text-justify" style="font-size: 24px;">{{ Mensaje }}</p>
+    <hr class="text-warning">
+
+    <button class="btn btn-outline-warning float-right" (click)="Aceptar()"><img src="assets/Iconos/Aceptar.png" style="height: 32px;">Entendido</button>
+</div>
+
+<div *ngIf="Titulo === 'Información'">
+    <h1 class="text-info">{{ Titulo }}</h1>
+    <hr class="text-info">
+
+    <p class="text-justify" style="font-size: 24px;">{{ Mensaje }}</p>
+    <hr class="text-info">
+
+    <button class="btn btn-outline-info float-right" (click)="Aceptar()"><img src="assets/Iconos/Aceptar.png" style="height: 32px;">Entendido</button>
+</div>
+
+<div *ngIf="Titulo === 'Error'">
+    <h1 class="text-danger">{{ Titulo }}</h1>
+    <hr class="text-danger">
+
+    <p class="text-justify" style="font-size: 24px;">{{ Mensaje }}</p>
+    <hr class="text-danger">
+
+    <button class="btn btn-outline-danger float-right" (click)="Aceptar()"><img src="assets/Iconos/Aceptar.png" style="height: 32px;">Entendido</button>
+</div>

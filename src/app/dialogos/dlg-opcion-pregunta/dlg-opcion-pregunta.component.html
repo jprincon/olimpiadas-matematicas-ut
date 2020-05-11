@@ -1,0 +1,47 @@
+<h1>Crear/Editar una Opción de la Pregunta</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Opción de Pregunta ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Opción de Pregunta ...</h3>
+</div>
+
+<form *ngIf="!guardando && !leyendo">
+    <div class="form-group">
+        <label style="font-weight: bold;">Opción</label>
+        <textarea type="text" rows="3" class="form-control" [(ngModel)]="opcionpregunta.opcion" name="opcion"></textarea>
+    </div>
+
+    <!-- %%%%%%% Previsualización de la pregunta en formato Katex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <div class="card card-shadow">
+        <div class="card-header bg-dark text-white">
+            <h3>Previsualización de la Pregunta</h3>
+        </div>
+
+        <div class="card-body">
+            <ng-katex-paragraph [paragraph]="opcionpregunta.opcion"></ng-katex-paragraph>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <label style="font-weight: bold;">Es Correcta</label>
+        <select class="custom-select" [(ngModel)]="opcionpregunta.escorrecta" name="escorrecta">
+          <option selected>Seleccione si es correcta o no la respuesta ...</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Id Pregunta</label>
+        <input type="text" disabled class="form-control" [(ngModel)]="opcionpregunta.idpregunta" name="idpregunta">
+    </div>
+
+
+    <button (click)="guardarOpcionPregunta()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

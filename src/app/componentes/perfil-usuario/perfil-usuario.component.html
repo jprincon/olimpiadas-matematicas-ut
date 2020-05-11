@@ -1,0 +1,111 @@
+<div style="margin: 30px;">
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card card-shadow">
+                <img src="assets/Imagenes/noImagenPerfil.jpg" style="border-radius: 100%;" class="card-img-top">
+
+                <div class="card-body text-center">
+                    <h3>{{ usuario.nombre | capitalizado}}</h3>
+                    <p>{{ usuario.correo }}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="card card-shadow">
+                <div class="card-body">
+
+                    <div class="text-center" style="margin: 20px;" *ngIf="guardando">
+                        <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+                        <h3>Guardando Usuario ...</h3>
+                    </div>
+
+                    <form *ngIf="!guardando">
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Nombre</label>
+                            <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Correo</label>
+                            <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Contra</label>
+                            <input type="password" class="form-control" [(ngModel)]="usuario.contra" name="contra">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Teléfono</label>
+                            <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono">
+                        </div>
+
+                        <h2 class="text-info">Institución</h2>
+                        <hr>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Id Institución</label>
+                            <input type="text" class="form-control" disabled [(ngModel)]="usuario.idinstitucion" name="idinstitucion">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Institución</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" [(ngModel)]="usuario.idinstitucion" name="idinstitucion">
+                                  <option selected>Seleccione una Institución ...</option>
+                                  <option [value]="institucion.idinstitucion" *ngFor="let institucion of Instituciones" >{{ institucion.nombre | capitalizado }}</option>
+                                </select>
+                                <span class="input-group-text" *ngIf="leyendoInstituciones">
+                                  <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+                                </span>
+                                <span class="input-group-text" *ngIf="!leyendoInstituciones">
+                                  <i class="fas fa-sync fa-1x text-success fa"></i>
+                                </span>
+                            </div>
+                            <small class="text-info">{{ advertenciaInstituciones }}</small>
+                        </div>
+
+                        <h2 class="text-info">Grado</h2>
+                        <hr>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Id Grado</label>
+                            <input type="text" class="form-control" disabled [(ngModel)]="usuario.idgrado" name="idgrado">
+                        </div>
+
+                        <div class="form-group">
+                            <label style="font-weight: bold;">Grado</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" [(ngModel)]="usuario.idgrado" name="idgrado">
+                                  <option selected>Seleccione un Grado ...</option>
+                                  <option [value]="grado.idgrado" *ngFor="let grado of Grados" >{{ grado.nombre | capitalizado }}</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" *ngIf="leyendoGrados">
+                                          <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+                                        </span>
+                                        <span class="input-group-text" *ngIf="!leyendoGrados">
+                                          <i class="fas fa-sync fa-1x text-success fa"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <small class="text-info">{{ advertenciaGrados }}</small>
+                        </div>
+
+                        <h2 class="text-info">Pruebas Presentadas</h2>
+                        <hr>
+
+
+                        <button (click)="guardarUsuario()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

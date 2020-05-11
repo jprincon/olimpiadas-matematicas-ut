@@ -1,0 +1,87 @@
+<h1>Crear/Editar una Pregunta</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Pregunta ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendoPregunta">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Pregunta ...</h3>
+</div>
+
+<form *ngIf="!leyendoPregunta && !guardando">
+    <div class="form-group">
+        <label style="font-weight: bold;">Pregunta</label>
+        <textarea type="text" rows="10" class="form-control" [(ngModel)]="pregunta.pregunta" name="pregunta"></textarea>
+    </div>
+
+    <!-- %%%%%%% Previsualización de la pregunta en formato Katex %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+    <div class="card card-shadow">
+        <div class="card-header bg-dark text-white">
+            <h3>Previsualización de la Pregunta</h3>
+        </div>
+
+        <div class="card-body">
+            <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+        </div>
+    </div>
+
+    <div class="form-group mt-4">
+        <label style="font-weight: bold;">Nivel</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="pregunta.idnivel" name="idnivel">
+              <option selected>Seleccione un Nivel para la pregunta ...</option>
+              <option [value]="nivel.idnivel" *ngFor="let nivel of Niveles" >{{ nivel.nombre }}</option>
+            </select>
+            <div class="input-group-append">
+                <span class="input-group-text" *ngIf="leyendoNiveles">
+                <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+              </span>
+                <span class="input-group-text" *ngIf="!leyendoNiveles">
+                <i class="fas fa-sync fa-1x text-success fa"  ></i>
+              </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Grado</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="pregunta.idgrado" name="idgrado">
+            <option selected>A qué grado pertenece ésta pregunta ...</option>
+            <option [value]="grado.idgrado" *ngFor="let grado of Grados" >{{ grado.nombre }}</option>
+          </select>
+            <div class="input-group-append">
+                <span class="input-group-text" *ngIf="leyendoGrados">
+              <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+            </span>
+                <span class="input-group-text" *ngIf="!leyendoGrados">
+              <i class="fas fa-sync fa-1x text-success fa"  ></i>
+            </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Prueba</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="pregunta.idprueba" name="idprueba">
+          <option selected>Seleccione la prueba a la cual asignará esta pregunta ...</option>
+          <option [value]="prueba.idprueba" *ngFor="let prueba of Pruebas" >{{ prueba.nombre | capitalizado }}</option>
+        </select>
+            <div class="input-group-append">
+                <span class="input-group-text" *ngIf="leyendoPruebas">
+            <i class="fas fa-sync fa-1x text-success fa fa-spin"></i>
+          </span>
+                <span class="input-group-text" *ngIf="!leyendoPruebas">
+            <i class="fas fa-sync fa-1x text-success fa"  ></i>
+          </span>
+            </div>
+        </div>
+    </div>
+
+
+    <button (click)="guardarPregunta()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>
