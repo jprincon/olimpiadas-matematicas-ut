@@ -1,0 +1,46 @@
+<h1>Estadísticas por preguntas</h1>
+<hr>
+
+<div class="alert alert-success" role="alert">
+    <h3>Descripción</h3>
+    <hr>
+
+    <p class="text-justify">Determina y analiza el comportamiento de cada una de las preguntas frente a la respuesta dada por los estudiantes. Esta estadística ofrece el porcentaje de estudiantes que respondieron de forma correcta e incorrecta cada pregunta</p>
+</div>
+
+<div *ngFor="let pregunta of Preguntas; let id = index" class="card card-shadow" style="margin: 10px;">
+    <div class="card-body">
+        <h3 class="card-title">Pregunta {{ id + 1}}</h3>
+        <hr>
+        <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Veces Contestadas de forma correcta</th>
+                            <td>{{ pregunta.Correctas }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Veces Contestadas de forma incorrecta</th>
+                            <td>{{ pregunta.Incorrectas }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Total veces contestada</th>
+                            <td>{{ pregunta.totalRespuesta }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="chart">
+                    <canvas baseChart [datasets]="pregunta.Datos" [labels]="pregunta.Labels" [chartType]="ChartType" [colors]="ChartColors" [legend]="ChartLegend">
+                </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

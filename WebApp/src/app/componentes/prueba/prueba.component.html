@@ -1,0 +1,110 @@
+<div class="text-center" style="margin: 20px;" *ngIf="evaluandoUsuario">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Verificando Información ...</h3>
+</div>
+
+<div class="alert alert-danger" *ngIf="validacion.resultadoValidacion === 'No' && !evaluandoUsuario" style="margin: 30px;">
+    <h3>Información</h3>
+    <hr>
+
+    <p class="text-justify">Lo sentimos, pero no se presentan los requisitos necesarios para presentar la prueba</p>
+
+    <ul>
+        <li>¿Es el tiempo para presentar la prueba?: <b>{{ validacion.tiempoPermitido }}</b></li>
+        <li>¿Ya presento ésta prueba?: <b>{{ validacion.pruebaPresentada }}</b></li>
+        <li>¿Ha sido clasificado para presentar ésta prueba?: <b>{{ validacion.superaCalificacion }}</b></li>
+    </ul>
+</div>
+
+<div class="row m-3" *ngIf="!evaluandoUsuario && validacion.resultadoValidacion === 'Si'">
+
+    <div class="col-md-3">
+        <div class="card card-shadow">
+            <div class="card-header bg-info">
+                <h3 class="card-title text-white">
+                    Preguntas de la Prueba
+                </h3>
+            </div>
+
+            <!-- <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action puntero-manito" (click)="seleccionarPregunta(pregunta, id)" *ngFor="let pregunta of Preguntas; let id = index">Pregunta {{ id + 1 }}</a>
+            </div> -->
+
+            <table class="table table-hover">
+                <tbody>
+                    <tr class="puntero-manito" *ngFor="let pregunta of Preguntas; let id = index" (click)="seleccionarPregunta(id)">
+                        <td [ngClass]="{'font-bold': pregunta.idpregunta === preguntaSeleccionada.idpregunta}">Pregunta {{ id + 1 }}</td>
+                        <td *ngIf="pregunta.respondida === 'Si'">
+                            <img src="assets/Iconos/Aceptar.png" style="width: 32px;" alt="Aceptar">
+                        </td>
+                        <td *ngIf="pregunta.respondida === 'No'"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- %%%%%%% Enviar el cuestionario completo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+        <div class="card card-shadow" style="margin-top: 20px;">
+            <div class="card-body">
+                <p>Si el cuestionario ya esta completo, pulse el botón de Enviar prueba Resuelta</p>
+
+                <button class="btn btn-outline-info btn-block" [disabled]="!puedeEnviarCuestionario" (click)="EnviarCuestionario()">
+                <img src="assets/Iconos/Enviar.png" style="width: 32px;"> Enviar Cuestionario
+              </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <h1 class="text-info">{{ nombrePrueba | capitalizado }}</h1>
+        <hr>
+
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active font-bold font-24">Pregunta {{ idPregunta + 1 }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+
+                <!-- %%%%%%% Imágenes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                <div class="row" *ngIf="Imagenes.length > 0 && !leyendoImagenes">
+
+                    <div class="col-md-6" *ngFor="let imagen of Imagenes; let id = index">
+                        <div class="card card-shadow" style="height: 500px; margin-top: 20px;">
+                            <div class="card-body">
+                                <img class="img-fluid" [src]="imagen.imagen" [alt]="imagen.idimagenpregunta">
+                                <h6 class="text-center">Imagen {{ id + 1 }}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <ng-katex-paragraph [paragraph]="preguntaSeleccionada.pregunta" *ngIf="!leyendoPregunta"></ng-katex-paragraph>
+                <hr>
+
+                <div class="text-center" style="margin: 20px;" *ngIf="leyendoOpciones">
+                    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+                    <h3>Leyendo Opciones ...</h3>
+                </div>
+
+                <!-- %%%%%%% Opciones de la pregunta %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+                <mat-radio-group class="radio-group" [(ngModel)]="opcionSeleccionada" *ngIf="!leyendoOpciones" (change)="cambiarOpcion()">
+                    <mat-radio-button class="radio-button" *ngFor="let opcion of Opciones" [value]="opcion">
+                        <ng-katex-paragraph [paragraph]="opcion.opcion" *ngIf="opcion.esimagen === 'No'"></ng-katex-paragraph>
+                        <img [src]="opcion.opcion" *ngIf="opcion.esimagen === 'Si'" class="img-fluid" style="width: 500px;">
+                    </mat-radio-button>
+                </mat-radio-group>
+
+                <hr>
+
+                <button (click)="guardarContinuar()" class="btn btn-outline-info float-right">Guardar y Continuar</button>
+
+            </div>
+        </div>
+    </div>
+</div>

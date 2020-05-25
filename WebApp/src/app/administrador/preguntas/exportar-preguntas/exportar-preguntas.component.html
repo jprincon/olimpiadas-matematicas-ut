@@ -1,0 +1,27 @@
+<div style="margin: 20px">
+
+    <div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+        <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+        <h3>Leyendo Preguntas ...</h3>
+    </div>
+
+    <div *ngIf="!leyendo">
+        <div *ngFor="let nivel of Niveles">
+            <h1>{{ nivel.nombre }}</h1>
+            <hr>
+
+            <div *ngFor="let pregunta of nivel.Preguntas; let id = index">
+                <h3>Pregunta {{ id + 1 }}</h3>
+                <hr>
+
+                <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+
+                <mat-radio-group style="display: flex; flex-direction: column; margin: 15px;">
+                    <mat-radio-button [checked]="opcion.escorrecta === 'Si'" style="margin: 5px;" *ngFor="let opcion of pregunta.Opciones" [value]="opcion.escorrecta">
+                        <ng-katex-paragraph [paragraph]="opcion.opcion"></ng-katex-paragraph>
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+    </div>
+</div>

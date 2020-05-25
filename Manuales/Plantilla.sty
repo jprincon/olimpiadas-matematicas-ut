@@ -1,0 +1,485 @@
+%%Paquete para cartillas de software educativo GEDES 
+%%Julián Andrés Rincón Penagos
+%%Abril del 2015
+
+\NeedsTeXFormat{LaTeX2e}
+\def\fileversion{2.0}
+\def\filedate{2015/04/08}
+
+\ProvidesPackage{Plantilla}
+
+\usepackage{bookman}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{geometry}
+\usepackage{marginnote}
+\usepackage{fullpage}
+\usepackage{minitoc}
+\spanishdecimal{.}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,headheight=1cm,headsep=1cm,footskip=1cm,heightrounded, marginparwidth=5cm, marginparsep=1cm}
+
+%Definir un tamaño de letra mas grande
+\def\letra#1#2{
+\fontfamily{pbk}
+\fontsize{#1}{1.2#1} 
+\selectfont #2}
+
+%Degine los colores
+\def\ccRojo{1}
+\def\ccVerde{1}
+\def\ccAzul{1}
+
+\def\coRojo{0.45}
+\def\coVerde{0.45}
+\def\coAzul{0.45}
+
+\def\ceRojo{0.45}
+\def\ceVerde{0.45}
+\def\ceAzul{0.45}
+
+\def\ctRojo{0.85}
+\def\ctVerde{0.85}
+\def\ctAzul{0.85}
+
+\usepackage{color}
+\definecolor{ColorClaro}{rgb}{1,1,1}
+\definecolor{ColorOscuro}{rgb}{0.45,0.45,0.45}
+\definecolor{ColorEncabezado}{rgb}{0.45,0.45,0.45}
+\definecolor{ColorContenido}{rgb}{0.85,0.85,0.85}
+\definecolor{ColorNegro}{rgb}{0,0,0}
+%\definecolor{ColorEjemplosEncabezado}{rgb}{0,0,0}
+%\definecolor{ColorEjemplosCuerpo}{rgb}{0,0,0}
+
+\newcommand{\colClaro}[3]
+{
+	\definecolor{ColorClaro}{rgb}{#1,#2,#3}
+}
+
+\newcommand{\colOscuro}[3]
+{
+	\definecolor{ColorOscuro}{rgb}{#1,#2,#3}
+}
+
+\newcommand{\colContenido}[3]
+{
+	\definecolor{ColorContenido}{rgb}{#1,#2,#3}
+}
+
+\newcommand{\colEncabezado}[3]
+{
+	\definecolor{ColorEncabezado}{rgb}{#1,#2,#3}
+}
+
+\newcommand{\colCajas}[3]
+{
+	\definecolor{ColorCajas}{rgb}{#1,#2,#3}
+}
+
+\newcommand{\colEjemplos}[6]
+{
+	\definecolor{ColorEjemplosEncabezado}{rgb}{#1,#2,#3}
+	\definecolor{ColorEjemplosCuerpo}{rgb}{#4,#5,#6}
+}
+
+\newcommand{\colDefiniciones}[6]
+{
+	\definecolor{ColorDefinicionesEncabezado}{rgb}{#1,#2,#3}
+	\definecolor{ColorDefinicionesCuerpo}{rgb}{#4,#5,#6}
+}
+
+\newcommand{\establecerGeometria}[6]
+{
+	\savegeometry{L2}
+	\newgeometry{verbose,lmargin=#1cm,rmargin=#2cm,tmargin=#3cm,bmargin=#4cm,marginparwidth=#5cm,marginparsep=#6cm,headsep=1cm,footskip=1cm,heightrounded,twoside}
+}
+
+%Crear los contadores
+\newcounter{CategoriaA}
+\newcounter{CategoriaB}
+\newcounter{CategoriaC}
+\newcounter{CategoriaD}
+\newcounter{CategoriaE}
+\newcounter{CategoriaF}
+\newcounter{Bibliograf}
+         
+\def\dTitulo{}
+\def\dAutores{}
+\def\dInstitucion{}
+\def\dGrupo{}
+\def\dCiudad{}
+\def\dFecha{}
+\def\dMateria{}
+\def\dTipoCapitulo{}
+\def\dNombreCapitulo{}
+\def\dEditorial{}
+\def\dAutoresCorto{}
+\def\dDescripcion{}
+
+\def\dEncabezadoI{}
+\def\dEncabezadoII{}
+\def\dPieI{}
+\def\dPieII{}
+
+%llamar a la imagen de fondo
+%\usepackage{wallpaper}
+%\CenterWallPaper{0.95}{Fondos/Fondo.eps}
+
+%comando para hacer una caja ##################################################
+\newcommand{\CajaColor}[2]
+{{\fcolorbox{#2}{#2}{\makebox[0.88\paperwidth][l]{#1}}}}
+
+%comando para hacer una caja ##################################################
+\newcommand{\CajaColorB}[2]
+{{\fcolorbox{#2}{#2}{\makebox[0.98\columnwidth][l]{#1}}}}
+
+%comando para hacer una caja ##################################################
+\newcommand{\CajaColorC}[2]
+{\fcolorbox{ColorCajas}{ColorCajas}{\makebox[#2cm][l]{\textcolor{ColorNegro}{\begin{minipage}[t]{#2cm}%
+#1%
+\end{minipage}}}}}
+
+
+%comando para las imagenes $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\newcommand{\ImgEnc}
+{
+	{
+		\begin{minipage}[t]{1\columnwidth} \CajaColor{}{ColorClaro}
+		\end{minipage}
+	}
+}
+
+\newcommand{\Bibliof}[2]
+{[#1] \vspace{3mm} #2}
+
+% Entorno para ejemplo
+\newenvironment{Ejemplo}[1]{
+	\stepcounter{CategoriaA}
+	\vspace{5mm}	
+	\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\textbf{Ejemplo \theCategoriaA:} #1}}}{ColorOscuro}
+	\begin{quote}
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+% Entorno para ejercicio
+\newenvironment{Ejercicio}[1]{
+	\stepcounter{CategoriaB}
+	\vspace{5mm}	
+	\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\textbf{Ejercicio \theCategoriaB:} #1}}}{ColorOscuro}
+	\begin{quote}
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+% Entorno para teorema
+\newenvironment{Teorema}[1]{
+	\stepcounter{CategoriaD}
+	\vspace{5mm}	
+	\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\textbf{Teorema \theCategoriaA:} #1}}}{ColorOscuro}
+	\begin{quote}
+	\itshape
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+% Entorno para Lema
+\newenvironment{Lema}[1]{
+	\stepcounter{CategoriaF}
+	\vspace{5mm}	
+	\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\textbf{Lema \theCategoriaF:} #1}}}{ColorOscuro}
+	\begin{quote}
+	\itshape
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+
+% Entorno para solución
+\newenvironment{Solucion}{
+	\vspace{5mm}
+	{\letra{5mm}{\textbf{Solución}}}
+	\begin{quote}
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+% Entorno para observación
+\newenvironment{Observacion}{
+	\vspace{5mm}
+	{\letra{5mm}{\textbf{Observación}}}
+	\begin{quote}
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+% Entorno para definición
+\newenvironment{Definicion}[1]{
+	\stepcounter{CategoriaE}
+	\vspace{5mm}
+	\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\textbf{Definición \theCategoriaE:} #1}}}{ColorOscuro}
+	\begin{quote}
+	\itshape
+}{
+	\end{quote}
+	\vspace{5mm}
+}
+
+\def\ReglaAntes{\textcolor{ColorOscuro}{{\titlerule[3pt]}}{ \vspace{1pt}}\textcolor{ColorOscuro}{{\titlerule[1pt]}} {\vspace{1pt}}}
+\def\ReglaDespues{{\vspace{1pt}} \textcolor{ColorOscuro}{{\titlerule[1pt]}}}
+
+\newcommand{\ReferenciaLibro}[5]
+{\stepcounter{Bibliograf}
+\begin{itemize}
+\item[[\theBibliograf] ] #1. (#2). \emph{#3} . #4: #5.
+\end{itemize}}
+
+\newcommand{\ReferenciaRevista}[6]
+{\stepcounter{Bibliograf}
+\begin{itemize}
+\item[[\theBibliograf] ] #1. (#2). #3 . #4: #5, #6
+\end{itemize}}
+
+\newcommand{\ReferenciaInternet}[4]
+{\stepcounter{Bibliograf}
+\begin{itemize}
+\item[[\theBibliograf] ] #1. (#2). #3 . Recuperado de #4
+\end{itemize}}
+
+\newcommand{\PaginaEnBlanco}{ \newpage \textcolor{blanco}{} \newpage}
+
+%Definir un portada ==============================================================
+\newcommand{\Titulo}[1]
+{
+	\def\dTitulo{#1}
+}
+
+\newcommand{\Descripcion}[1]
+{
+	\def\dDescripcion{#1}
+}
+
+\newcommand{\Autores}[1]
+{
+	\def\dAutores{#1}
+}
+
+\newcommand{\AutoresCorto}[1]
+{
+	\def\dAutoresCorto{#1}
+}
+
+\newcommand{\Institucion}[1]
+{
+	\def\dInstitucion{#1}
+}
+
+\newcommand{\Grupo}[1]
+{
+	\def\dGrupo{#1}
+}
+
+\newcommand{\Ciudad}[1]
+{
+	\def\dCiudad{#1}
+}
+
+\newcommand{\Fecha}[1]
+{
+	\def\dFecha{#1}
+}
+
+\newcommand{\Materia}[1]
+{
+	\def\dMateria{#1}
+}
+
+\newcommand{\Logo}[1]
+{
+	\def\dLogo{#1}
+}
+
+\newcommand{\TipoCapitulo}[1]
+{
+	\def\dTipoCapitulo{#1}
+}
+
+\newcommand{\NombreCapitulo}[1]
+{
+	\def\dNombreCapitulo{#1}
+}
+
+\newcommand{\Editorial}[1]
+{
+	\def\dEditorial{#1}
+}
+
+%Definir los derechos del autor
+\newcommand{\DerechosAutor}{
+	\newpage{}
+	.
+	\vfill{}
+
+	\textbf{}%
+	\framebox{\begin{minipage}[t]{1\columnwidth}%
+	\textbf{AUTOR}
+
+	\dAutores{}
+	
+	\dInstitucion{}
+	
+	\dFecha{}
+
+	\vspace{4cm}
+
+	\textbf{TODOS LOS DERECHOS RESERVADOS}
+
+	\vspace{1cm}
+
+	No está permitida importar, vender, difundir y exportar total o parcialmente
+	esta obra, ni su tratamiento o transmisión por cualquier método sin
+	autorización escrita de la editorial. El contenido y los derechos
+	de la presente obra son excluidos del autor.
+	
+	\vspace{2cm}
+	
+	{\tiny{Diagramación y diseño \LaTeX{}: Julián Andrés Rincón Penagos}}{\small \par}
+	\end{minipage}}
+	
+	\vfill{}
+	.
+
+	\newpage{}
+}
+
+\newcommand{\GenerarPortada}{
+\begin{center}
+\textbf{\Huge{\textsc{\dTitulo}}}
+\end{center}
+
+\vfill{}
+
+\begin{center}
+\huge{\textsc{\dAutores}}
+\end{center}
+
+\begin{center}
+\LARGE{\textsc{\dGrupo}}
+\end{center}
+
+\begin{center}
+\LARGE{\textsc{\dMateria}}
+\end{center}
+
+\vfill{}
+
+\begin{center}
+\LARGE{\textsc{Editorial}}
+\end{center}
+
+\begin{center}
+\Large{\dEditorial}
+\end{center}
+
+\vfill{}
+
+\begin{center}
+\textbf{\Large{\textsc{\dInstitucion}}}
+\end{center}
+
+\begin{center}
+\large{\dCiudad}
+\end{center}
+
+\begin{center}
+\dFecha
+\end{center}
+}
+
+%Define los encabezados y pies de página
+\newcommand{\EncabezadoI}[1]{\def\dEncabezadoI{#1}}
+\newcommand{\EncabezadoII}[1]{\def\dEncabezadoII{#1}}
+\newcommand{\PieI}[1]{\def\dPieI{#1}}
+\newcommand{\PieII}[1]{\def\dPieII{#1}}
+
+
+%Codigo para secciones #############################################################
+\usepackage{titlesec}
+
+%Codigo para secciones #############################################################
+\usepackage{titlesec}
+\global\def\TipoCap{}
+
+%titulos  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\titleformat
+{\chapter} %Comando
+[display]       %Tipo
+{ \filleft \sffamily \bfseries \Huge \color{ColorOscuro} \thispagestyle{fancy}} %Formato 
+{
+	\textcolor{ColorOscuro}{\letra{15mm}{\dTipoCapitulo}} \textcolor{ColorOscuro}{\letra{5cm}{\thechapter}}
+}
+{1pt} %Separación
+{ \ReglaAntes  }
+[ \small \sffamily\mdseries \color{ColorNegro}  \dDescripcion]
+
+%subtitulos segundo nivel $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\titleformat
+{\section}
+[hang]
+{\filright  \sffamily \Large \bfseries }
+{\fcolorbox{ColorOscuro}{ColorOscuro}{\textcolor{ColorClaro}{\letra{1cm}{\thesection}}} }
+{5pt}
+{}
+[\textcolor{ColorOscuro}{{\titlerule[2pt]}}]
+
+%subtitulos tercer  nivel $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\titleformat
+{\subsection}
+[hang]
+{\filright \sffamily  \bfseries \large}
+{\fcolorbox{ColorOscuro}{ColorOscuro}{\textcolor{ColorClaro}{\letra{7mm}{\thesubsection}}}}
+{5pt}
+{}
+[\textcolor{ColorOscuro}{{\titlerule[2pt]}}]
+
+%subtitulos cuarto  nivel $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\titleformat
+{\subsubsection}
+[hang]
+{ \filright \normalfont  \sffamily  \bfseries \normalsize}
+{\fcolorbox{ColorOscuro}{ColorOscuro}{\textcolor{ColorClaro}{\letra{5mm}{ \thesubsubsection}}}}
+{5pt}
+{}
+[\textcolor{ColorOscuro}{{\titlerule[2pt]}}]
+
+%Código para no partir palabras
+\tolerance = 10000
+\pretolerance = 10000
+\setlength{\parindent}{0pt}
+
+%Encabezados y Pies $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % borrar todos los ajustes
+
+%Encabezado y pies de páginas pares #################################### 
+\fancyhead[LE]{\textcolor{ColorOscuro}{\letra{3mm}{\dTipoCapitulo ~ \thechapter \hfill \dNombreCapitulo}}  \\ \CajaColorB{\textcolor{ColorOscuro}{Plantilla: Julián Rincón} \hfill \textcolor{ColorClaro}{\letra{3mm}{\dMateria}}}{ColorOscuro} }
+
+\fancyfoot[RE]{\CajaColorB{\textcolor{ColorOscuro}{Plantilla: Julián Rincón} \hfill \textcolor{ColorClaro}{\letra{5mm}{\thepage}}}{ColorOscuro} \textcolor{ColorOscuro}{\letra{3mm}{\dInstitucion}} \hfill \textcolor{ColorOscuro}{\letra{3mm}{\dAutoresCorto}}}
+
+
+%Encabezado y pie páginas impares ####################################
+\fancyhead[RO]{\textcolor{ColorOscuro}{\letra{3mm}{\dTipoCapitulo ~ \thechapter \hfill \dNombreCapitulo}} \\ \CajaColorB{\textcolor{ColorClaro}{\letra{3mm}{\dMateria}}}{ColorOscuro}}
+
+\fancyfoot[RO]{\CajaColorB{\textcolor{ColorClaro}{\letra{5mm}{\thepage}}}{ColorOscuro} \\  \textcolor{ColorOscuro}{\letra{3mm}{\dAutoresCorto}} \hfill \textcolor{ColorOscuro}{\letra{3mm}{\dInstitucion}}}
+
+%Paquete para el código fuente de pascal
+\usepackage{listings}
+\lstloadlanguages{Pascal}
+
+\lstset{language=Pascal,tabsize=2, numbers=left, numberstyle=\tiny, stepnumber=1, numbersep=5pt, frame=single, showstringspaces=false}

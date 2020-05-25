@@ -1,0 +1,73 @@
+<h1>Preguntas</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Leyendo Preguntas ...</h3>
+</div>
+
+<div class="text-center" style="margin: 20px;" *ngIf="eliminando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Eliminando Pregunta ...</h3>
+</div>
+
+<div class="m-3" *ngIf="!leyendo && !eliminando">
+
+    <button class="btn btn-outline-success float-right" (click)="agregarPregunta()" style="margin: 5px;"><img src="assets/Iconos/Agregar.png" style="height: 32px;"> Agregar Pregunta</button>
+    <button class="btn btn-outline-success float-right" (click)="exportarPreguntas()" style="margin: 5px;"><img src="assets/Iconos/Imprimir.png" style="height: 32px;"> Exportar Preguntas</button>
+
+    <table class="table table-hover puntero-manito">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Pregunta</th>
+                <th>Prueba</th>
+                <th>Nivel</th>
+                <th>Grado</th>
+                <th>Ver</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input class="form-control" type="text" [(ngModel)]="busqueda.pregunta" name="busqueda.pregunta" (keydown.enter)="buscar('pregunta')">
+                </td>
+                <td>
+                    <input class="form-control" type="text" [(ngModel)]="busqueda.prueba" name="busqueda.pregunta" (keydown.enter)="buscar('prueba')">
+                </td>
+                <td>
+                    <input class="form-control" type="text" [(ngModel)]="busqueda.nivel" name="busqueda.pregunta" (keydown.enter)="buscar('nivel')">
+                </td>
+                <td>
+                    <input class="form-control" type="text" [(ngModel)]="busqueda.grado" name="busqueda.pregunta" (keydown.enter)="buscar('grado')">
+                </td>
+                <td>
+                    <button style="width: 100px;" class="btn btn-outline-info btn-sm" (click)="limpiarBusqueda()"> <img src="assets/Iconos/Limpiar.png" style="height: 32px;"> Limpiar</button>
+                </td>
+            </tr>
+            <tr *ngFor="let pregunta of bPreguntas; let id = index">
+                <td>{{ id + 1 }}</td>
+                <td>
+                    <ng-katex-paragraph [paragraph]="pregunta.pregunta"></ng-katex-paragraph>
+                </td>
+                <td>{{ pregunta.prueba }}</td>
+                <td>{{ pregunta.nivel }}</td>
+                <td>{{ pregunta.grado }}</td>
+                <td>
+                    <button style="width: 100px;" class="btn btn-outline-info btn-sm" (click)="verPregunta(pregunta)"> <img src="assets/Iconos/Ver.png" style="height: 32px;"> Ver</button>
+                </td>
+                <td>
+                    <button style="width: 100px;" class="btn btn-outline-warning btn-sm" (click)="editarPregunta(pregunta)"> <img src="assets/Iconos/Editar.png" style="height: 32px;"> Editar</button>
+                </td>
+                <td>
+                    <button style="width: 100px;" class="btn btn-outline-danger btn-sm" (click)="eliminarPregunta(pregunta)"><img src="assets/Iconos/Eliminar.png" style="height: 32px;"> Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

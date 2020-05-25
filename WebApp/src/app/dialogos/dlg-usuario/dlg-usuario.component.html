@@ -1,0 +1,89 @@
+<h1>Crear/Editar un Usuario</h1>
+<hr>
+
+<div class="text-center" style="margin: 20px;" *ngIf="guardando">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Guardando Usuario ...</h3>
+</div>
+
+<form *ngIf="!guardando">
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Documento de Identificación</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.idusuario" name="idusuario">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Nombre</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.nombre" name="nombre">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Correo</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.correo" name="correo">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Contra</label>
+        <input type="password" class="form-control" [(ngModel)]="usuario.contra" name="contra">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Teléfono</label>
+        <input type="text" class="form-control" [(ngModel)]="usuario.telefono" name="telefono">
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Institución</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="usuario.idinstitucion" name="idinstitucion" [disabled]="esRegistroEstudiante">
+              <option selected>Seleccione una Institución ...</option>
+              <option [value]="institucion.idinstitucion" *ngFor="let institucion of Instituciones" >{{ institucion.nombre | capitalizado }}</option>
+            </select>
+            <div class="input-group-append" *ngIf="leyendoInstituciones">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa fa-spin" ></i></button>
+            </div>
+            <div class="input-group-append" *ngIf="!leyendoInstituciones">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa" ></i></button>
+            </div>
+        </div>
+        <small class="text-info">{{ advertenciaInstituciones }}</small>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Grado</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="usuario.idgrado" name="idgrado">
+              <option selected>Seleccione un Grado ...</option>
+              <option [value]="grado.idgrado" *ngFor="let grado of Grados" >{{ grado.nombre | capitalizado }}</option>
+            </select>
+            <div class="input-group-append" *ngIf="leyendoGrados">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa fa-spin" ></i></button>
+            </div>
+            <div class="input-group-append" *ngIf="!leyendoGrados">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa" ></i></button>
+            </div>
+        </div>
+        <small class="text-info">{{ advertenciaGrados }}</small>
+    </div>
+
+    <div class="form-group">
+        <label style="font-weight: bold;">Rol</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" [(ngModel)]="usuario.idrol" name="idrol" [disabled]="esRegistroEstudiante">
+              <option selected>Seleccione un Rol</option>
+              <option [value]="rol.idrol" *ngFor="let rol of Roles" >{{ rol.nombre | capitalizado }}</option>
+            </select>
+            <div class="input-group-append" *ngIf="leyendoRoles">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa fa-spin"></i></button>
+            </div>
+            <div class="input-group-append" *ngIf="!leyendoRoles">
+                <button class="btn btn-outline-success" type="button" id="button-addon2"><i class="fas fa-sync fa-1x text-success fa"></i></button>
+            </div>
+        </div>
+        <small class="text-info">{{ advertenciaRoles }}</small>
+    </div>
+
+
+    <button (click)="guardarUsuario()" class="btn btn-outline-success float-right"><img src="assets/Iconos/Guardar.png" style="height: 32px;"> Guardar</button>
+</form>

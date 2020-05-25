@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/04/05 15:16:45.000.702,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:16:45.000.500,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:16:45.000.272,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\FormUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.188,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\json2.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.577,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\css\main.css</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.337,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\json2-min.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.660,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\templates\reversestring.html</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.104,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\base64.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.406,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\serverfunctionexecutor-min.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.752,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\images\collapse.png</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.612,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\css\serverfunctioninvoker.css</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.546,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\serverfunctioninvoker.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.306,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\base64-min.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.275,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\serverfunctions.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.459,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\callbackframework-min.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.225,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\callbackframework.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.153,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\serverfunctionexecutor.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.792,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\images\expand.png</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.491,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\js\connection.js</Transaction>
+    <Transaction>2020/04/05 15:16:47.000.708,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\templates\serverfunctioninvoker.html</Transaction>
+    <Transaction>2020/04/05 15:39:06.000.749,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFOlimpiadas.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\FormUnit1.dfm</Transaction>
+    <Transaction>2020/04/05 15:39:06.000.749,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFOlimpiadas.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\FormUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:39:14.000.490,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uModuloWeb.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:39:14.000.490,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uModuloWeb.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\WebModuleUnit1.dfm</Transaction>
+    <Transaction>2020/04/05 15:39:19.000.742,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uMetodosServidor.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\ServerMethodsUnit1.pas</Transaction>
+    <Transaction>2020/04/05 15:39:19.000.742,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uMetodosServidor.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\ServerMethodsUnit1.dfm</Transaction>
+    <Transaction>2020/04/26 18:00:39.000.040,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas</Transaction>
+    <Transaction>2020/04/26 18:01:15.000.043,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFErrores.pas</Transaction>
+    <Transaction>2020/04/26 18:01:15.000.043,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFErrores.dfm</Transaction>
+    <Transaction>2020/04/26 18:30:12.000.933,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas</Transaction>
+    <Transaction>2020/04/26 18:30:59.000.079,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uBackupModule.pas</Transaction>
+    <Transaction>2020/04/26 18:30:59.000.079,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uBackupModule.dfm</Transaction>
+    <Transaction>2020/04/26 18:53:16.000.663,=C:\Users\julia\Dropbox\MIS_PROYECTOS\7000_Librerias\Utilidades\Utilidades.pas</Transaction>
+    <Transaction>2020/04/26 20:54:09.000.979,=C:\Users\julia\Dropbox\MIS_PROYECTOS\7000_Librerias\Windows\Teclado.pas</Transaction>
+    <Transaction>2020/05/12 00:26:42.000.959,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas</Transaction>
+    <Transaction>2020/05/12 00:30:03.000.609,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFCertificado.dfm</Transaction>
+    <Transaction>2020/05/12 00:30:03.000.609,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFCertificado.pas</Transaction>
+    <Transaction>2020/05/24 23:11:59.388,=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas</Transaction>
+    <Transaction>2020/05/24 23:16:47.958,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFManual.dfm=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.dfm</Transaction>
+    <Transaction>2020/05/24 23:16:47.958,C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\uFManual.pas=C:\Users\julia\Dropbox\Servidores\Data_Snap_Olimpiadas\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>

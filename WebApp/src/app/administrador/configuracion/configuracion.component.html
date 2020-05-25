@@ -1,0 +1,18 @@
+<div class="text-center" style="margin: 20px;" *ngIf="leyendo">
+    <i class="fas fa-sync fa-10x text-success fa fa-spin"></i>
+    <h3>Obteniendo Configuración ...</h3>
+</div>
+
+
+<div *ngIf="!leyendo">
+    <div class="form-group">
+        <label class="font-bold">Inscripciones de Estudiantes desde las Instituciones Educativas</label>
+        <div>
+            <mat-slide-toggle style="margin: 10px;" [checked]="estado" [(ngModel)]="estado" name="estado" (change)="cambiarEstado()">
+                ¿Permitir más inscripciones?
+            </mat-slide-toggle>
+        </div>
+
+        <button class="btn btn-outline-success" (click)="cambiar()">Cambiar</button>
+    </div>
+</div>

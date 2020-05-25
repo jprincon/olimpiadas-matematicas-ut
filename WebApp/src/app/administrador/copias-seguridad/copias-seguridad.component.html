@@ -1,0 +1,28 @@
+<h1>Archivos Excel</h1>
+<hr>
+
+<div class="row">
+
+    <div class="col-md-2" *ngFor="let copia of listaCopias">
+        <div class="card-shadow card text-center puntero-manito" style="margin: 3px;" (click)="descargarInforme(copia)">
+            <img src="assets/Iconos/Excel.png" alt="Excel" class="card-img-top text-center">
+
+            <div class="card-body">
+                <h6 class="text-center">{{ copia }}</h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h1 style="margin-top: 10px;">Archivo Backup-PostgresSql</h1>
+<hr>
+
+<div class="col-md-2">
+    <div class="card-shadow card text-center puntero-manito" style="margin: 3px;" (click)="descargarBackupPostgres()">
+        <img src="assets/Iconos/PostgresSql.png" alt="Excel" class="card-img-top text-center">
+
+        <div class="card-body">
+            <h6 class="text-center">Backup-Postgres</h6>
+        </div>
+    </div>
+</div>

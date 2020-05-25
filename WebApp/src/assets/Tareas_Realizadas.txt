@@ -1,0 +1,15 @@
+Tareas desarrolladas en la aplicacion
+
+1. Se creo la configuración para permitir inscribir o no más estudiantes
+2. Se creo opción para enviar correos masivos
+3. Se creo el sistema de descarga de archivos de recuperación
+4. Se creo el sistema de descarga del Backup del propio postgres
+5. El sistema ya esta guardando pregunta a pregunta contestada
+6. Las imágenes se muestran en una matriz
+7. Agregué un método para Validar si el usuario puede presentar la prueba	}
+
+
+Dar formato para que la nota tenga decimales
+Decir cuántas preguntas buenas obtuvo
+imágenes de opciones como matriz
+la calificación esta en la escala de 0.0 a 5.0

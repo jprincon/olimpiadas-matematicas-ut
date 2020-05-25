@@ -1,0 +1,32 @@
+<div style="margin: 30px;">
+
+    <div class="card card-shadow" style="margin: 30px;" *ngFor="let puntaje of puntajes">
+        <div class="card-body">
+            <h1 class="text-info">{{ puntaje.nombreprueba }}</h1>
+            <hr>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <ul>
+                        <li>Esta prueba se presento el: <b>{{ puntaje.fechapresentacion }}</b></li>
+                        <li>Contenia un total de: <b>{{ puntaje.cantidadpreguntas }} preguntas</b></li>
+                        <li>Obtuvo una calificación de: <b>{{ puntaje.calificacion }}</b></li>
+                    </ul>
+
+                    <button class="btn btn-outline-info" (click)="descargarCertificado()">
+                      <img src="assets/Iconos/Certificado.png" style="width: 48px;" > Descargar Certificado
+                    </button>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="chart">
+                        <canvas baseChart [data]="puntaje.Data" [legend]="'true'" [colors]="pieChartColors" [labels]="puntaje.Labels" [chartType]="'pie'">
+            </canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

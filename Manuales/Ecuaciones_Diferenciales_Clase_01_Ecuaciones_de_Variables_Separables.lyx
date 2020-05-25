@@ -1,0 +1,807 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass Plantilla
+\begin_preamble
+\usepackage{Plantilla}
+\end_preamble
+\use_default_options true
+\begin_modules
+multicol
+\end_modules
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize letterpaper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 18.2cm
+\paperheight 32.5cm
+\leftmargin 3cm
+\topmargin 5cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 5
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\bullet 0 2 1 -1
+\bullet 1 2 14 -1
+\bullet 2 2 16 -1
+\bullet 3 2 34 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 3
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout TipoCapitulo
+Clase
+\end_layout
+
+\begin_layout NombreCapitulo
+Ecuaciones Separables
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Aplicaciones ...
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{chapter}{0}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Capitulo
+Ecuaciones Separables
+\end_layout
+
+\begin_layout Standard
+En el estudio del Cálculo Diferencial se aprendio que por ejemplo, al derivar
+ la función
+\begin_inset Formula 
+\[
+y=x^{2}
+\]
+
+\end_inset
+
+ se tiene como resultado 
+\begin_inset Formula 
+\[
+\dfrac{dy}{dx}=2x
+\]
+
+\end_inset
+
+ conocida esta derividación como 
+\series bold
+derivación implicita
+\series default
+, donde 
+\begin_inset Formula $\dfrac{dy}{dx}$
+\end_inset
+
+ corresponde a la derivada de la función con respecto a 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observemos en la siguientes función
+\begin_inset Formula 
+\[
+y=x^{2}+2x+1
+\]
+
+\end_inset
+
+ que 
+\begin_inset Formula 
+\[
+\dfrac{dy}{dx}=2x+2
+\]
+
+\end_inset
+
+ luego si multiplicamos en ambos lados por 
+\begin_inset Formula $dx$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+dy=\left(2x+2\right)dx
+\]
+
+\end_inset
+
+ y si se integra en ambos lados 
+\begin_inset Formula 
+\begin{align*}
+\int dy & =\int\left(2x+2\right)dx\\
+y & =x^{2}+2x+C
+\end{align*}
+
+\end_inset
+
+ este proceso en 
+\series bold
+Ecuaciones Diferenciales
+\series default
+ se conoce con el nombre de ecuaciones separables.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Con esta introducción, definamos que es una Ecuación Diferencial.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Definición:
+\series default
+ Una ecuación que incluya derivadas o diferenciales de una función se llama
+ ecuación diferencial.
+ Si las derivadas son ordinarias o parciales se clasifican como Ecuaciones
+ Diferenciales Ordinarias o Ecuaciones Diferenciales Parciales\SpecialChar endofsentence
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El Orden de una ecuación diferencial está dado por el orden de la derivada
+ más alta presente en la ecuación.
+ Así para una función 
+\begin_inset Formula $y=f\left(t\right)$
+\end_inset
+
+ en donde se reconoce a 
+\begin_inset Formula $t$
+\end_inset
+
+ como variable independiente y a 
+\begin_inset Formula $y$
+\end_inset
+
+ como variable dependiente, una ecuación diferencial ordinaria de orden
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ tiene la forma 
+\begin_inset Formula 
+\[
+F\left(t,y,y^{\prime},y^{\prime\prime},\ldots,y^{\left(n\right)}\right)=0
+\]
+
+\end_inset
+
+ donde 
+\begin_inset Formula 
+\[
+y^{\prime}=\dfrac{dy}{dt},\quad y^{\prime\prime}=\dfrac{d^{2}y}{dt^{2}},\ldots y^{\left(n\right)}=\dfrac{d^{n}y}{dt^{n}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Seccion
+Ecuaciones de Variables Separables
+\end_layout
+
+\begin_layout Standard
+Tal como vimos en el primer ejemplo, cuando se derivan funciones explicitas,
+ los términos de 
+\begin_inset Formula $y$
+\end_inset
+
+ y 
+\begin_inset Formula $t$
+\end_inset
+
+ quedan separados, y son a estas ecuaciones a las que llamaremos ecuaciones
+ de variables separables.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Las ecuaciones diferenciales ordinarias de primer orden más sencillas son
+ las de variables separables.
+ Estas adoptan la forma
+\begin_inset Formula 
+\[
+M\left(t\right)dt+N\left(y\right)dy=0
+\]
+
+\end_inset
+
+ y para encontrar la función 
+\begin_inset Formula $y$
+\end_inset
+
+ , que es la solución de la Ecuación Diferencial solo basta con integrar
+ cada término de la Ecuación.
+ Así, 
+\begin_inset Formula 
+\[
+\int M\left(t\right)dt+\int N\left(y\right)dy=C
+\]
+
+\end_inset
+
+ donde 
+\begin_inset Formula $C$
+\end_inset
+
+ se llama constante de integración.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando se soluciona la Ecuación Diferencial, a veces resulta una solución
+ explicita,en la práctica a menos de que se diga lo contrario, no se piden
+ soluciones explicitas.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejemplo:
+\series default
+ Encontrar la solución de la ecuación lineal de primer orden:
+\begin_inset Formula 
+\[
+y^{\prime}+p\left(t\right)y=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Solución:
+\series default
+ Este es un caso particular de las ecuaciones de variables separables y
+ además de la ecuación lineal, que será estudiada mas adelante.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para solucionar esta ecuación se deben separar las variables, sabiendo que
+ 
+\begin_inset Formula $y^{\prime}=\dfrac{dy}{dt}$
+\end_inset
+
+, así 
+\begin_inset Formula 
+\begin{align*}
+\dfrac{dy}{dt}+p\left(t\right)y & =0\\
+\dfrac{dy}{dt} & =-p\left(t\right)y\\
+\dfrac{dy}{y} & =-p\left(t\right)dt\\
+\dfrac{dy}{y}+p\left(t\right)dt & =0
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+esta última ecuación toma la forma de 
+\begin_inset Formula 
+\[
+M\left(t\right)dt+N\left(y\right)dy=0
+\]
+
+\end_inset
+
+ donde 
+\begin_inset Formula $M\left(t\right)=p\left(t\right)$
+\end_inset
+
+ y 
+\begin_inset Formula $N\left(y\right)=\dfrac{1}{y}$
+\end_inset
+
+, pero para resolver con más facilidad la ecuación se usará su forma previa
+ 
+\begin_inset Formula 
+\[
+\dfrac{dy}{y}=-p\left(t\right)dt
+\]
+
+\end_inset
+
+ integrando en ambos lados se tiene 
+\begin_inset Formula 
+\[
+\ln\left|y\right|=-\int p\left(t\right)dt+C
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+para despejar a 
+\begin_inset Formula $y$
+\end_inset
+
+ se aplica la función exponencial
+\begin_inset Formula 
+\[
+e^{\ln\left|y\right|}=e^{-\int p\left(t\right)dt+C}
+\]
+
+\end_inset
+
+ de donde 
+\begin_inset Formula 
+\begin{align*}
+y & =e^{-\int p\left(t\right)dt}e^{c}\\
+y & =Ce^{-\int p\left(t\right)dt}
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+de tal manera que si encontramos ecuaciones diferenciales de la forma 
+\begin_inset Formula 
+\[
+y^{\prime}+p\left(t\right)y=0
+\]
+
+\end_inset
+
+ ecuación a la que seguiremos llamando 
+\series bold
+Ecuación Lineal Homogenea
+\series default
+, sabremos que la solución es 
+\begin_inset Formula 
+\[
+y=Ce^{-\int p\left(t\right)dt}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejemplo: 
+\series default
+Resolver la ecuación diferencial 
+\begin_inset Formula 
+\[
+y^{\prime}+\left(t^{2}+1\right)y=0
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Solución: 
+\series default
+Sabemos que 
+\begin_inset Formula $p\left(t\right)=t^{2}+1$
+\end_inset
+
+ y que la solución de la Ecuación Diferencial es
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y=Ce^{-\int p\left(t\right)dt}
+\]
+
+\end_inset
+
+ entonces debemos calcular 
+\begin_inset Formula 
+\begin{align*}
+-\int\left(t^{2}+1\right)dt & =-\left(\dfrac{t^{3}}{3}+t\right)\\
+\end{align*}
+
+\end_inset
+
+ así la solución de la Ecuación Diferencial es
+\begin_inset Formula 
+\[
+y=Ce^{-\left(\frac{t^{3}}{3}+t\right)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejercicios:
+\series default
+ Resolver las siguientes ecuaciones diferenciales
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y^{\prime}+\cos\left(t\right)y=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y^{\prime}+t\sin\left(t^{2}+3\right)y=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y^{\prime}+\ln\left(2+t\right)y=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $y^{\prime}+\dfrac{t}{3t^{2}+1}y=0$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejemplo
+\series default
+: Resolver la Ecuación Diferencial
+\begin_inset Formula 
+\[
+y^{\prime}=ay-by^{2}\text{; donde }a,b\text{ son constantes positivas }
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Solución
+\series default
+: Para resolver esta ecuación se hace una separación de variables 
+\begin_inset Formula 
+\begin{align*}
+y^{\prime} & =ay-by^{2}\\
+\dfrac{dy}{dt} & =ay-by^{2}\\
+\dfrac{dy}{ay-by^{2}} & =dt
+\end{align*}
+
+\end_inset
+
+ para resolver se integra en ambos lados
+\begin_inset Formula 
+\[
+\int\dfrac{dy}{ay-by^{2}}=\int dt
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+el problema central esta en resolver la integral 
+\begin_inset Formula 
+\[
+\int\dfrac{dy}{ay-by^{2}}
+\]
+
+\end_inset
+
+ y para resolverla es necesario aplicar 
+\series bold
+fracciones parciales 
+\series default
+
+\begin_inset Formula 
+\begin{align*}
+\dfrac{1}{y\left(a-by\right)} & =\dfrac{A}{y}+\dfrac{B}{a-by}\\
+ & =\dfrac{A\left(a-by\right)+By}{y\left(a-by\right)}
+\end{align*}
+
+\end_inset
+
+ donde 
+\begin_inset Formula 
+\[
+1=A\left(a-by\right)+By
+\]
+
+\end_inset
+
+ para encontrar la solución se aplica el 
+\series bold
+Método de los anuladores
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $y=0$
+\end_inset
+
+ entonces 
+\begin_inset Formula 
+\begin{align*}
+1 & =A\left(a-b\left(0\right)\right)+B\left(0\right)\\
+1 & =A\left(a\right)
+\end{align*}
+
+\end_inset
+
+ donde 
+\begin_inset Formula $A=\frac{1}{a}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Itemize
+Si 
+\begin_inset Formula $y=\frac{a}{b}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{align*}
+1 & =A\left(a-b\cdot\frac{a}{b}\right)+B\left(\frac{a}{b}\right)\\
+1 & =A\left(a-a\right)+B\left(\frac{a}{b}\right)\\
+1 & =B\left(\frac{a}{b}\right)\\
+\end{align*}
+
+\end_inset
+
+ donde 
+\begin_inset Formula $B=\frac{b}{a}$
+\end_inset
+
+ , así la integral se transforma en 
+\begin_inset Formula 
+\[
+\int\dfrac{dy}{ay-by^{2}}=\int\dfrac{\nicefrac{1}{a}}{y}dy+\int\dfrac{\nicefrac{b}{a}}{a-by}dy
+\]
+
+\end_inset
+
+ organizando se tiene 
+\begin_inset Formula 
+\[
+\frac{1}{a}\int\dfrac{dy}{y}+\frac{b}{a}\int\dfrac{dy}{a-by}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+la primera integral es directa y en la segunda se hace una sustitución simple,
+ sea 
+\begin_inset Formula $m=a-by$
+\end_inset
+
+ entones 
+\begin_inset Formula 
+\begin{align*}
+dm & =-bdy\\
+-\frac{dm}{b} & =dy
+\end{align*}
+
+\end_inset
+
+ así, 
+\begin_inset Formula 
+\begin{align*}
+= & \frac{1}{a}\ln\left|y\right|+\frac{b}{a}\left(-\frac{1}{b}\right)\int\dfrac{dm}{m}\\
+= & \frac{1}{a}\ln\left|y\right|-\frac{1}{a}\ln\left|m\right|+C\\
+= & \frac{1}{a}\ln\left|y\right|-\frac{1}{a}\ln\left|a-by\right|+C\\
+= & \frac{1}{a}\left(\ln\left|y\right|-\ln\left|a-by\right|\right)+C
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+aplicando propiedades de logaritmos
+\begin_inset Formula 
+\[
+\frac{1}{a}\left(\ln\left|\frac{y}{a-by}\right|\right)+C
+\]
+
+\end_inset
+
+de la solución inicial se tiene
+\begin_inset Formula 
+\begin{align*}
+\int\dfrac{dy}{ay-by^{2}} & =\int dt\\
+\frac{1}{a}\left(\ln\left|\frac{y}{a-by}\right|\right)+C & =t
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Se deja como 
+\emph on
+ejercicio encontrar la solución explicita
+\emph default
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Ejercicio:
+\series default
+ Encontrar la solución de la Ecuación diferencial 
+\begin_inset Formula 
+\[
+y^{\prime}-ay=b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

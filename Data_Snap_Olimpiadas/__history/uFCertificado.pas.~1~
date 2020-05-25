@@ -1,0 +1,28 @@
+unit uFCertificado;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, PReport, PRJpegImage, Vcl.ExtCtrls;
+
+type
+  TFCertificado = class(TForm)
+    ScrollBox1: TScrollBox;
+    PRPage1: TPRPage;
+    pr1: TPRLayoutPanel;
+    prImg: TPRJpegImage;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FCertificado: TFCertificado;
+
+implementation
+
+{$R *.dfm}
+
+end.

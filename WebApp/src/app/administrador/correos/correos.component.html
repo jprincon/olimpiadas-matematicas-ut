@@ -1,0 +1,65 @@
+<h1>Envío de Correos Masivos</h1>
+<hr>
+
+<div class="row">
+
+    <div class="col-md-7">
+        <h3>Datos del Correo</h3>
+        <hr>
+
+        <div class="form-group">
+            <label class="font-bold">Asunto</label>
+            <input class="form-control" type="text" [(ngModel)]="correo.asunto" name="asunto" placeholder="Escriba el Asunto del Correo">
+        </div>
+
+        <div class="form-group">
+            <label class="font-bold">Título</label>
+            <input class="form-control" type="text" [(ngModel)]="correo.titulo" name="titulo" placeholder="Escriba el Título del Mensaje">
+        </div>
+
+        <div class="form-group">
+            <label class="font-bold">Mensaje</label>
+            <textarea rows="10" class="form-control" type="text" [(ngModel)]="correo.mensaje" name="mensaje" placeholder="Escriba el Mensaje"></textarea>
+        </div>
+
+        <button class="btn btn-outline-info" (click)="enviarCorreo()">Enviar Correo</button>
+    </div>
+
+    <div class="col-md-5">
+
+        <div class="text-center" style="margin: 20px;" *ngIf="leyendoRoles">
+            <i class="fas fa-sync fa-5x text-success fa fa-spin"></i>
+            <h6>Leyendo Roles ...</h6>
+        </div>
+
+        <div class="text-center" style="margin: 20px;" *ngIf="enviandoCorreo">
+            <i class="fas fa-envelope fa-5x text-success fa fa-spin"></i>
+            <h6>Enviando Correo ...</h6>
+        </div>
+
+        <div *ngIf="!enviandoCorreo">
+
+            <div class="form-group" *ngIf="!leyendoRoles">
+                <label class="font-bold">¿A quién quiere enviar el correo?</label>
+                <select class="custom-select" [(ngModel)]="seleccionCorreos" name="seleccionCorreos" (change)="obtenerCorreos()">
+                <option value="Todos">Todos</option>
+                <option [value]="rol.idrol" *ngFor="let rol of Roles" >{{ rol.nombre }}</option>
+              </select>
+            </div>
+
+            <div class="card">
+                <div class="text-center" style="margin: 20px;" *ngIf="leyendoUsuarios">
+                    <i class="fas fa-sync fa-5x text-success fa fa-spin"></i>
+                    <h6>Leyendo Usuarios ...</h6>
+                </div>
+
+                <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+
+                    <span class="badge badge-pill badge-info" style="padding: 5px; margin: 2px;" *ngFor="let usuario of Usuarios">
+                    {{ usuario.correo }} <span class="puntero-manito" (click)="eliminarUsuario(usuario)"><i class="fas fa-times-circle"></i></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

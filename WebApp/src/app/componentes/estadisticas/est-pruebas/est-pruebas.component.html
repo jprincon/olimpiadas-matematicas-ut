@@ -1,0 +1,51 @@
+<h1>Estadísticas por pruebas</h1>
+<hr>
+
+<div class="alert alert-success" role="alert">
+    <h3>Descripción</h3>
+    <hr>
+
+    <p class="text-justify">Determina y analiza el comportamiento de cada una de las preguntas frente a la respuesta dada por los estudiantes. Esta estadística ofrece el porcentaje de estudiantes que respondieron de forma correcta e incorrecta cada pregunta</p>
+</div>
+
+<div *ngFor="let prueba of pruebas; let id = index" class="card card-shadow" style="margin: 10px;">
+    <div class="card-body">
+        <h3 class="card-title">Prueba {{ id + 1}}</h3>
+        <h6 class="text-info">{{ prueba.Nombre }}</h6>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th>Calificación Mínima</th>
+                            <td>{{ prueba.Minimo }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Calificación Máxima</th>
+                            <td>{{ prueba.Maximo }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Calificación Promedio</th>
+                            <td>{{ prueba.Promedio }}</td>
+                        </tr>
+
+                        <tr>
+                            <th>Total de Puntajes</th>
+                            <td>{{ prueba.TotalPuntajes }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <div class="chart">
+                    <canvas baseChart [datasets]="prueba.Niveles" [labels]="ChartLabels" [chartType]="ChartType" [colors]="ChartColors" [legend]="ChartLegend">
+                </canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
